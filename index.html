@@ -680,7 +680,7 @@
           </div>
           <div class="bg-slate-50 px-3 sm:px-5 py-2 sm:py-2.5 rounded-xl sm:rounded-2xl border border-slate-200 text-xs sm:text-sm font-bold text-citymed-teal shadow-sm" data-i18n="disp_cab_hours">🏢 Кабинет № 507 | Пн-Пт: 08:00 – 20:00</div>
         </div>
-        <p class="text-xs sm:text-sm md:text-base text-slate-600 leading-relaxed mb-4 sm:mb-6 font-medium" data-i18n="disp_desc">Диспансеризация проводится с целью раннего выявления факторов риска и хронических неинфекционных заболеваний. Проходит в 1 день.</p>
+        <p class="text-xs sm:text-sm md:text-base text-slate-600 leading-relaxed mb-4 sm:mb-6 font-medium" data-i18n="disp_desc">Диспансеризация проводится с целью раннего выявления факторов риска и хронических неинфекционных заболеваний.</p>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-6 sm:mb-8">
           <div class="bg-slate-50/80 rounded-2xl sm:rounded-3xl p-4 sm:p-6 border border-slate-200 shadow-sm">
             <div class="text-slate-900 font-extrabold text-sm sm:text-base mb-3 flex items-center justify-between flex-wrap gap-2">
@@ -692,8 +692,8 @@
               <li data-i18n="disp_l1_2">Осмотр полости рта, кожных покровов</li>
               <li data-i18n="disp_l1_3">Измерение роста, веса, ИМТ, артериального давления</li>
               <li data-i18n="disp_l1_4">Общий анализ крови, мочи, глюкоза крови (по показаниям)</li>
-              <li data-i18n="disp_l1_5">ФЛЮ (флюорография) — 1 раз в 3 года</li>
-              <li data-i18n="disp_l1_6">Осмотр акушерки/гинеколога (для женщин) — 1 раз в 3 года</li>
+              <li data-i18n="disp_l1_5">ФЛГ (флюорография) — 1 раз в 3 года</li>
+              <li data-i18n="disp_l1_6">Осмотр акушер-гинеколога (для женщин) — 1 раз в 3 года</li>
             </ul>
           </div>
           <div class="bg-slate-50/80 rounded-2xl sm:rounded-3xl p-4 sm:p-6 border border-slate-200 shadow-sm">
@@ -830,17 +830,22 @@
             <p class="text-xs sm:text-sm text-slate-500 font-medium" data-i18n="pay_subtitle">Стоимость и перечень услуг для граждан РБ и иностранных граждан.</p>
           </div>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-6 sm:mb-8">
-          <div class="bg-gradient-to-br from-teal-50 to-emerald-50 border border-teal-100 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-sm">
-            <h3 class="font-extrabold text-slate-900 text-base sm:text-lg mb-2" data-i18n="pay_citizen">🇧🇾 Для граждан Республики Беларусь</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-6 sm:mb-8">
+          
+          <!-- Ссылка для граждан РБ -->
+          <a href="https://gp41.by/платные-услуги/стоимость-платных-медицинских-услуг-для-граждан-республики-беларусь" target="_blank" rel="noopener noreferrer" class="block bg-gradient-to-br from-teal-50 to-emerald-50 border border-teal-100 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-sm hover:shadow-glow-hover hover:-translate-y-1 transition duration-300 group">
+            <h3 class="font-extrabold text-slate-900 text-base sm:text-lg mb-2 group-hover:text-teal-600 transition" data-i18n="pay_citizen">🇧🇾 Для граждан Республики Беларусь</h3>
             <p class="text-xs sm:text-sm text-slate-600 font-medium mb-3" data-i18n="pay_citizen_desc">Стоимость платных медицинских услуг регулируется государственными тарифами.</p>
-            <span class="text-xs sm:text-sm font-bold text-citymed-teal bg-white px-3 sm:px-4 py-2 rounded-lg sm:rounded-xl inline-block border border-teal-200 shadow-sm" data-i18n="pay_citizen_contact">Каб. платных услуг | (017) 311-74-30</span>
-          </div>
-          <div class="bg-gradient-to-br from-sky-50 to-blue-50 border border-sky-100 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-sm">
-            <h3 class="font-extrabold text-slate-900 text-base sm:text-lg mb-2" data-i18n="pay_foreign">🌍 Для иностранных граждан</h3>
+            <span class="text-xs sm:text-sm font-bold text-citymed-teal bg-white px-3 sm:px-4 py-2 rounded-lg sm:rounded-xl inline-block border border-teal-200 shadow-sm group-hover:bg-teal-500 group-hover:text-white transition">Перейти к ценам ↗</span>
+          </a>
+
+          <!-- Ссылка для иностранных граждан -->
+          <a href="https://gp41.by/платные-услуги/стоимость-платных-медицинских-услуг-для-иностранных-граждан" target="_blank" rel="noopener noreferrer" class="block bg-gradient-to-br from-sky-50 to-blue-50 border border-sky-100 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-sm hover:shadow-glow-hover hover:-translate-y-1 transition duration-300 group">
+            <h3 class="font-extrabold text-slate-900 text-base sm:text-lg mb-2 group-hover:text-sky-600 transition" data-i18n="pay_foreign">🌍 Для иностранных граждан</h3>
             <p class="text-xs sm:text-sm text-slate-600 font-medium mb-3" data-i18n="pay_foreign_desc">Стоимость услуг для иностранных граждан рассчитывается по отдельным тарифам.</p>
-            <span class="text-xs sm:text-sm font-bold text-citymed-teal bg-white px-3 sm:px-4 py-2 rounded-lg sm:rounded-xl inline-block border border-sky-200 shadow-sm" data-i18n="pay_foreign_contact">Email: kassa@gp41.by</span>
-          </div>
+            <span class="text-xs sm:text-sm font-bold text-sky-700 bg-white px-3 sm:px-4 py-2 rounded-lg sm:rounded-xl inline-block border border-sky-200 shadow-sm group-hover:bg-sky-500 group-hover:text-white transition">Перейти к ценам ↗</span>
+          </a>
+
         </div>
         <h3 class="font-extrabold text-slate-900 text-base sm:text-lg mb-3 sm:mb-4" data-i18n="pay_directions">Перечень направлений:</h3>
         <div id="payGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4"></div>
