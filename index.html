@@ -306,6 +306,7 @@
         <button onclick="showPage('about')" data-page="about" class="page-tab hover:text-citymed-teal hover:bg-teal-50/80 px-5 py-2.5 rounded-xl transition" data-i18n="nav_about">🏥 О поликлинике</button>
         <button onclick="showPage('services')" data-page="services" class="page-tab hover:text-citymed-teal hover:bg-teal-50/80 px-5 py-2.5 rounded-xl transition" data-i18n="nav_services">👨‍⚕️ Услуги</button>
         <button onclick="showPage('feedback')" data-page="feedback" class="page-tab hover:text-citymed-teal hover:bg-teal-50/80 px-5 py-2.5 rounded-xl transition" data-i18n="nav_feedback">💬 Отзывы</button>
+ <button onclick="showPage('myHistory')" id="desktopHistoryBtn" data-page="myHistory" class="hidden page-tab hover:text-citymed-teal hover:bg-teal-50/80 px-5 py-2.5 rounded-xl transition" data-i18n="nav_history">📜 Моя история</button>
       </li>
       <li class="flex gap-2">
         <button type="button" onclick="openAuthModal(event)" id="authBtn" class="text-xs text-white font-bold bg-teal-500 hover:bg-teal-600 px-4 py-2 rounded-xl shadow-sm transition" data-i18n="auth_btn">Вход / Регистрация</button>
@@ -1475,6 +1476,7 @@
     const navAdminMobile = document.getElementById('navAdminMobile');
     const mobileHistoryBtn = document.getElementById('mobileHistoryBtn');
     const adminSec = document.getElementById('adminSection');
+    const desktopHistoryBtn = document.getElementById('desktopHistoryBtn');
 
     if (user) {
       if (authBtn) authBtn.classList.add('hidden');
@@ -1488,6 +1490,7 @@
       if (isAdmin) { if (navAdmin) navAdmin.classList.remove('hidden'); if (navAdminMobile) navAdminMobile.classList.remove('hidden'); }
       else { if (navAdmin) navAdmin.classList.add('hidden'); if (navAdminMobile) navAdminMobile.classList.add('hidden'); }
       if (mobileHistoryBtn && !isAdmin) mobileHistoryBtn.classList.remove('hidden');
+      if (desktopHistoryBtn && !isAdmin) desktopHistoryBtn.classList.remove('hidden');
       if (!isAdmin && window.loadMyTickets) window.loadMyTickets();
     } else {
       if (authBtn) authBtn.classList.remove('hidden');
@@ -1499,6 +1502,7 @@
       if (navAdmin) navAdmin.classList.add('hidden');
       if (navAdminMobile) navAdminMobile.classList.add('hidden');
       if (mobileHistoryBtn) mobileHistoryBtn.classList.add('hidden');
+      if (desktopHistoryBtn) desktopHistoryBtn.classList.add('hidden');
       if (adminSec) adminSec.classList.add('hidden');
       if (window.currentPage === 'admin') { window.currentPage = 'home'; window.showPage('home'); }
     }
