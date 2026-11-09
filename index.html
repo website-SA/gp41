@@ -306,7 +306,7 @@
         <button onclick="showPage('about')" data-page="about" class="page-tab hover:text-citymed-teal hover:bg-teal-50/80 px-5 py-2.5 rounded-xl transition" data-i18n="nav_about">🏥 О поликлинике</button>
         <button onclick="showPage('services')" data-page="services" class="page-tab hover:text-citymed-teal hover:bg-teal-50/80 px-5 py-2.5 rounded-xl transition" data-i18n="nav_services">👨‍⚕️ Услуги</button>
         <button onclick="showPage('feedback')" data-page="feedback" class="page-tab hover:text-citymed-teal hover:bg-teal-50/80 px-5 py-2.5 rounded-xl transition" data-i18n="nav_feedback">💬 Отзывы</button>
- <button onclick="showPage('myHistory')" id="desktopHistoryBtn" data-page="myHistory" class="hidden page-tab hover:text-citymed-teal hover:bg-teal-50/80 px-5 py-2.5 rounded-xl transition" data-i18n="nav_history">📜 Моя история</button>
+
       </li>
       <li class="flex gap-2">
         <button type="button" onclick="openAuthModal(event)" id="authBtn" class="text-xs text-white font-bold bg-teal-500 hover:bg-teal-600 px-4 py-2 rounded-xl shadow-sm transition" data-i18n="auth_btn">Вход / Регистрация</button>
@@ -330,7 +330,7 @@
         <button onclick="showPage('about'); toggleMobileMenu()" data-page="about" class="page-tab-mobile text-left px-4 py-3 rounded-xl hover:bg-teal-50 transition font-bold text-sm" data-i18n="nav_about">🏥 О поликлинике</button>
         <button onclick="showPage('services'); toggleMobileMenu()" data-page="services" class="page-tab-mobile text-left px-4 py-3 rounded-xl hover:bg-teal-50 transition font-bold text-sm" data-i18n="nav_services">👨‍⚕️ Услуги</button>
         <button onclick="showPage('feedback'); toggleMobileMenu()" data-page="feedback" class="page-tab-mobile text-left px-4 py-3 rounded-xl hover:bg-teal-50 transition font-bold text-sm" data-i18n="nav_feedback">💬 Отзывы</button>
-        <button onclick="showPage('myHistory'); toggleMobileMenu()" id="mobileHistoryBtn" class="hidden text-left px-4 py-3 rounded-xl hover:bg-teal-50 transition font-bold text-sm" data-i18n="nav_history">📜 Моя история</button>
+        
         <div class="border-t border-slate-200 mt-1 pt-2 flex flex-col gap-1.5">
           <button type="button" onclick="openAuthFromMobile(event)" id="authBtnMobile" class="w-full text-xs text-white font-bold bg-teal-500 hover:bg-teal-600 px-4 py-2.5 rounded-xl shadow-sm transition" data-i18n="auth_btn">Вход / Регистрация</button>
           <button onclick="logout(); toggleMobileMenu()" id="logoutBtnMobile" class="hidden w-full text-xs text-red-600 font-bold bg-red-50 hover:bg-red-100 px-4 py-2.5 rounded-xl transition" data-i18n="logout_btn">Выйти</button>
@@ -480,43 +480,34 @@
         </div>
         <div id="hvSuccess" class="hidden mt-4 p-3 sm:p-4 bg-green-50 text-green-800 rounded-xl font-bold text-sm" data-i18n="hv_success">Заявка на вызов врача принята! Ожидайте звонка.</div>
       </section>
+<section id="myTickets" class="page-section bg-white/85 backdrop-blur-xl border border-white/90 rounded-2xl sm:rounded-3xl shadow-glow p-5 sm:p-8 md:p-12 hidden">
+  <div class="flex items-center mb-4 sm:mb-6 pb-4 border-b border-slate-100 flex-wrap gap-3">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-teal-100/80 flex items-center justify-center text-citymed-teal font-bold text-xl sm:text-2xl shadow-sm">🎫</div>
+      <div>
+        <h2 class="text-xl sm:text-2xl md:text-3xl font-black text-slate-900 tracking-tight" data-i18n="my_tickets_title">Мои талоны</h2>
+        <p class="text-xs sm:text-sm text-slate-500 font-medium" data-i18n="my_tickets_subtitle">Здесь отображаются ваши записи на прием.</p>
+      </div>
+    </div>
+    
+    <!-- Группа кнопок рядом, прижата вправо -->
+    <div class="flex items-center gap-2 sm:gap-3 ml-auto">
+      <button onclick="loadMyTickets()" class="bg-teal-600 text-white px-3 sm:px-4 py-2 rounded-xl font-bold text-xs sm:text-sm hover:bg-teal-700 transition" data-i18n="update_btn">🔄 Обновить</button>
+      <button onclick="downloadFullHistory()" class="bg-slate-800 text-white px-3 sm:px-4 py-2 rounded-xl font-bold text-xs sm:text-sm hover:bg-slate-700 transition flex items-center gap-2" data-i18n="download_all">📥 Скачать историю</button>
+    </div>
+  </div>
 
-      <section id="myTickets" class="page-section bg-white/85 backdrop-blur-xl border border-white/90 rounded-2xl sm:rounded-3xl shadow-glow p-5 sm:p-8 md:p-12 hidden">
-        <div class="flex items-center justify-between mb-4 sm:mb-6 pb-4 border-b border-slate-100 flex-wrap gap-3">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-teal-100/80 flex items-center justify-center text-citymed-teal font-bold text-xl sm:text-2xl shadow-sm">🎫</div>
-            <div>
-              <h2 class="text-xl sm:text-2xl md:text-3xl font-black text-slate-900 tracking-tight" data-i18n="my_tickets_title">Мои талоны</h2>
-              <p class="text-xs sm:text-sm text-slate-500 font-medium" data-i18n="my_tickets_subtitle">Здесь отображаются ваши записи на прием.</p>
-            </div>
-          </div>
-          <button onclick="loadMyTickets()" class="bg-teal-500 text-white px-3 sm:px-4 py-2 rounded-xl font-bold text-xs sm:text-sm hover:bg-teal-600 transition" data-i18n="update_btn">🔄 Обновить</button>
-        </div>
-        <div class="flex gap-2 mb-4">
-          <button onclick="switchTicketsTab('upcoming')" id="tab-upcoming" class="px-4 sm:px-5 py-2 rounded-xl font-bold text-xs sm:text-sm bg-teal-500 text-white shadow-sm transition" data-i18n="tab_upcoming">Предстоящие</button>
-          <button onclick="switchTicketsTab('history')" id="tab-history" class="px-4 sm:px-5 py-2 rounded-xl font-bold text-xs sm:text-sm bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-i18n="tab_history">История</button>
-        </div>
-        <div id="myTicketsList" class="grid grid-cols-1 gap-4">
-          <p class="text-slate-400 italic" data-i18n="loading">Загрузка...</p>
-        </div>
-      </section>
+  <div class="flex gap-2 mb-4">
+    <button onclick="switchTicketsTab('upcoming')" id="tab-upcoming" class="px-4 sm:px-5 py-2 rounded-xl font-bold text-xs sm:text-sm bg-teal-500 text-white shadow-sm transition" data-i18n="tab_upcoming">Предстоящие</button>
+    <button onclick="switchTicketsTab('history')" id="tab-history" class="px-4 sm:px-5 py-2 rounded-xl font-bold text-xs sm:text-sm bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-i18n="tab_history">История</button>
+  </div>
 
-      <section id="myHistory" class="page-section bg-white/85 backdrop-blur-xl border border-white/90 rounded-2xl sm:rounded-3xl shadow-glow p-5 sm:p-8 md:p-12 hidden">
-        <div class="flex items-center justify-between mb-4 sm:mb-6 pb-4 border-b border-slate-100 flex-wrap gap-3">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-sky-100 flex items-center justify-center text-sky-600 font-bold text-xl sm:text-2xl shadow-sm">📜</div>
-            <div>
-              <h2 class="text-xl sm:text-2xl md:text-3xl font-black text-slate-900 tracking-tight" data-i18n="history_title">Моя история посещений</h2>
-              <p class="text-xs sm:text-sm text-slate-500 font-medium" data-i18n="history_subtitle">Полный список ваших визитов с возможностью скачать выписку.</p>
-            </div>
-          </div>
-          <button onclick="downloadFullHistory()" class="bg-teal-500 text-white px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl font-bold text-xs sm:text-sm hover:bg-teal-600 transition flex items-center gap-2" data-i18n="download_all">📥 Скачать полную историю</button>
-        </div>
-        <div id="myHistoryList" class="space-y-3">
-          <p class="text-slate-400 italic" data-i18n="loading">Загрузка...</p>
-        </div>
-      </section>
+  <div id="myTicketsList" class="grid grid-cols-1 gap-4">
+    <p class="text-slate-400 italic" data-i18n="loading">Загрузка...</p>
+  </div>
+</section>
 
+     
       <section id="feedback" class="page-section bg-white/85 backdrop-blur-xl border border-white/90 rounded-2xl sm:rounded-3xl shadow-glow p-5 sm:p-8 md:p-12 hidden">
         <div class="flex items-center gap-3 mb-4 sm:mb-6 pb-4 border-b border-slate-100">
           <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-purple-100 flex items-center justify-center text-purple-600 font-bold text-xl sm:text-2xl shadow-sm">💬</div>
@@ -1188,10 +1179,10 @@
     home: { sections: ['hero', 'booking', 'home-visit', 'myTickets'] },
     about: { sections: ['structure', 'addresses', 'schedule', 'contacts'] },
     services: { sections: ['doctors', 'dispanserization', 'services', 'extract'] },
-    myHistory: { sections: ['myHistory'] },
+
     feedback: { sections: ['feedback'] }
   };
-  const ANCHOR_TO_PAGE = { '#hero': 'home', '#booking': 'home', '#home-visit': 'home', '#myTickets': 'home', '#myHistory': 'myHistory', '#feedback': 'feedback', '#structure': 'about', '#addresses': 'about', '#schedule': 'about', '#contacts': 'about', '#doctors': 'services', '#dispanserization': 'services', '#services': 'services', '#extract': 'services', '#adminSection': 'admin' };
+  const ANCHOR_TO_PAGE = { '#hero': 'home', '#booking': 'home', '#home-visit': 'home', '#myTickets': 'home', '#feedback': 'feedback', '#structure': 'about', '#addresses': 'about', '#schedule': 'about', '#contacts': 'about', '#doctors': 'services', '#dispanserization': 'services', '#services': 'services', '#extract': 'services', '#adminSection': 'admin' };
 
   window.showPage = function(pageKey) {
     const page = PAGES[pageKey];
@@ -1204,7 +1195,7 @@
       const isAdmin = window.currentUser && window.currentUser.email === "admin@gp41.by";
       if (!window.currentUser || isAdmin) myTickets.classList.add('hidden');
     }
-    if (pageKey === 'myHistory' && window.currentUser && window.loadMyHistory) window.loadMyHistory();
+
     if (pageKey === 'feedback' && window.loadPublicFeedback) window.loadPublicFeedback();
     if (pageKey === 'home' && window.currentUser && window.currentUser.email !== 'admin@gp41.by' && window.loadMyTickets) window.loadMyTickets();
     document.querySelectorAll('.page-tab').forEach(btn => {
@@ -1473,10 +1464,9 @@
     const myTickets = document.getElementById('myTickets');
     const authBtnMobile = document.getElementById('authBtnMobile');
     const logoutBtnMobile = document.getElementById('logoutBtnMobile');
-    const navAdminMobile = document.getElementById('navAdminMobile');
-    const mobileHistoryBtn = document.getElementById('mobileHistoryBtn');
+    const navAdminMobile = document.getElementById('navAdminMobile'); 
     const adminSec = document.getElementById('adminSection');
-    const desktopHistoryBtn = document.getElementById('desktopHistoryBtn');
+
 
     if (user) {
       if (authBtn) authBtn.classList.add('hidden');
@@ -1489,8 +1479,6 @@
       if (myTickets) { if (isAdmin) myTickets.classList.add('hidden'); else myTickets.classList.remove('hidden'); }
       if (isAdmin) { if (navAdmin) navAdmin.classList.remove('hidden'); if (navAdminMobile) navAdminMobile.classList.remove('hidden'); }
       else { if (navAdmin) navAdmin.classList.add('hidden'); if (navAdminMobile) navAdminMobile.classList.add('hidden'); }
-      if (mobileHistoryBtn && !isAdmin) mobileHistoryBtn.classList.remove('hidden');
-      if (desktopHistoryBtn && !isAdmin) desktopHistoryBtn.classList.remove('hidden');
       if (!isAdmin && window.loadMyTickets) window.loadMyTickets();
     } else {
       if (authBtn) authBtn.classList.remove('hidden');
@@ -1501,8 +1489,6 @@
       if (warning) warning.classList.remove('hidden');
       if (navAdmin) navAdmin.classList.add('hidden');
       if (navAdminMobile) navAdminMobile.classList.add('hidden');
-      if (mobileHistoryBtn) mobileHistoryBtn.classList.add('hidden');
-      if (desktopHistoryBtn) desktopHistoryBtn.classList.add('hidden');
       if (adminSec) adminSec.classList.add('hidden');
       if (window.currentPage === 'admin') { window.currentPage = 'home'; window.showPage('home'); }
     }
